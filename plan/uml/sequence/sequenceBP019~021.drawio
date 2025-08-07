@@ -220,14 +220,14 @@
                         <mxPoint as="offset"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="12" value="return List&amp;lt;Category&amp;gt;" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;exitX=0;exitY=1;exitDx=0;exitDy=-5;" edge="1" parent="1">
+                <mxCell id="12" value="resultset" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;exitX=0;exitY=1;exitDx=0;exitDy=-5;" edge="1" parent="1">
                     <mxGeometry x="-0.0353" y="28" relative="1" as="geometry">
                         <mxPoint x="516" y="202" as="targetPoint"/>
                         <mxPoint x="728.5" y="202" as="sourcePoint"/>
                         <mxPoint as="offset"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="11" value="SQL&lt;div&gt;(SELECT categoryName&amp;nbsp;&lt;/div&gt;&lt;div&gt;FROM PRODUCT_CATEGORY&amp;nbsp;&lt;/div&gt;&lt;div&gt;WHERE categoryName)&lt;/div&gt;" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" edge="1" target="10" parent="1">
+                <mxCell id="11" value="SQL&lt;div&gt;(SELECT categoryName&amp;nbsp;&lt;/div&gt;&lt;div&gt;FROM PRODUCT_CATEGORY&amp;nbsp;&lt;/div&gt;&lt;div&gt;WHERE categoryName&lt;/div&gt;&lt;div&gt;＝｛productcategoryname｝)&lt;/div&gt;" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" edge="1" target="10" parent="1">
                     <mxGeometry y="11" relative="1" as="geometry">
                         <mxPoint x="517.75" y="185" as="sourcePoint"/>
                         <mxPoint x="693" y="187" as="targetPoint"/>
