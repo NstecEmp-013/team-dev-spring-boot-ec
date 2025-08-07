@@ -28,7 +28,7 @@
 
 ### URL一覧
 画面ID|画面名|コントローラー|メソッド|ビュー
----|---|---|---
+---|---|---|---|---
 BP01|メニュー画面(http://localhost8080/admin)|adminController|admin|admin/admin.html
 BP02|担当者ログイン画面(http://localhost8080/admin/login)|adminController|login|admin/login.html
 BP03|担当者アカウント登録(入力)画面(http://localhost8080/admin/account/form)|accountController|form|admin/account/form.html
