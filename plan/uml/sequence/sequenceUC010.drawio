@@ -13,12 +13,6 @@
                 <mxCell id="houy_Up9C2UZ-9tv4yLi-3" value="" style="html=1;points=[[0,0,0,0,5],[0,1,0,0,-5],[1,0,0,0,5],[1,1,0,0,-5]];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};" parent="houy_Up9C2UZ-9tv4yLi-2" vertex="1">
                     <mxGeometry x="45" y="92" width="10" height="193" as="geometry"/>
                 </mxCell>
-                <mxCell id="houy_Up9C2UZ-9tv4yLi-4" value="form()" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;entryX=0;entryY=0;entryDx=0;entryDy=5;fontSize=12;startSize=8;endSize=8;" parent="houy_Up9C2UZ-9tv4yLi-2" target="houy_Up9C2UZ-9tv4yLi-3" edge="1">
-                    <mxGeometry x="0.0115" relative="1" as="geometry">
-                        <mxPoint x="-42" y="97" as="sourcePoint"/>
-                        <mxPoint as="offset"/>
-                    </mxGeometry>
-                </mxCell>
                 <mxCell id="houy_Up9C2UZ-9tv4yLi-21" value="Modelにセット" style="html=1;align=left;spacingLeft=2;endArrow=block;rounded=0;edgeStyle=orthogonalEdgeStyle;curved=0;rounded=0;fontSize=12;startSize=8;endSize=8;" parent="houy_Up9C2UZ-9tv4yLi-2" edge="1">
                     <mxGeometry x="-0.175" y="7" relative="1" as="geometry">
                         <mxPoint x="55" y="234" as="sourcePoint"/>
@@ -221,7 +215,6 @@
                     <mxGeometry x="-0.575" y="11" relative="1" as="geometry">
                         <mxPoint x="120" y="860" as="sourcePoint"/>
                         <Array as="points">
-                            <mxPoint x="123" y="860"/>
                             <mxPoint x="153" y="860"/>
                             <mxPoint x="153" y="882"/>
                         </Array>
@@ -276,6 +269,12 @@
                     <mxGeometry x="-0.0322" y="26" relative="1" as="geometry">
                         <mxPoint x="151.5" y="506" as="targetPoint"/>
                         <mxPoint x="1" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="houy_Up9C2UZ-9tv4yLi-4" value="form()" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;entryX=0;entryY=0;entryDx=0;entryDy=5;fontSize=12;startSize=8;endSize=8;" parent="1" target="houy_Up9C2UZ-9tv4yLi-3" edge="1" source="houy_Up9C2UZ-9tv4yLi-1">
+                    <mxGeometry x="0.0115" relative="1" as="geometry">
+                        <mxPoint x="29" y="116" as="sourcePoint"/>
+                        <mxPoint as="offset"/>
                     </mxGeometry>
                 </mxCell>
             </root>
