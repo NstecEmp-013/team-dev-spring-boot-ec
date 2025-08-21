@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/extras/spring-security">
+<body th:fragment="header">
+<nav class="navbar mb-3" style="border-bottom: 2px solid #198754; background-color: white;">
+  <div class="container flex-column text-center">
+    <span class="fw-bold text-success fs-4" th:text="#{header.main.title}"></span>
+    <div class="mt-2 d-flex justify-content-center align-items-center gap-3 flex-wrap">
+      <!-- ログインしていない場合、[ログイン]ボタンのみ表示する-->
+      <div class="mt-2 d-flex justify-content-center align-items-center gap-3 flex-wrap"
+         sec:authorize="isAnonymous()">
+         <a class="btn btn-success btn-sm" th:href="@{admin/login}">ログイン</a>
+      </div>
+      <!-- ログインされていたら、以下の項目を表示する -->
+      <div class="mt-2 d-flex justify-content-center align-items-center gap-3 flex-wrap"
+         sec:authorize="isAuthenticated()">
+         <a class="nav-link text-success px-2"
+         href="#"
+         onclick="return false;"
+         th:text="#{header.product.mente.title}">商品情報メンテナンス</a>
+         <a class="nav-link text-success px-2"
+            href="#"
+            onclick="return false;"
+            th:text="#{header.regiter.productcategory.title}">商品カテゴリ登録</a>
+         <a class="nav-link text-success px-2"
+            href="#"
+            onclick="return false;"
+            th:text="#{header.regiter.account.title}">アカウント登録</a>
+         <form th:action="@{/logout}" method="post" class="d-inline">
+            <button type="submit" class="btn btn-success btn-sm"
+               th:text="#{header.logout.title}">ログアウト</button>
+         </form>
+      </div>
+    </div>
+  </div>
+</nav>
+</body>
+</html>
+
