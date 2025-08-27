@@ -1,4 +1,3 @@
-
 // package com.fullness.ec;
 
 // import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -9,9 +8,9 @@
 // @SpringBootTest
 // class ApplicationTests {
 
-@Test
-void contextLoads() {
-	assertEquals(2, 1 + 1);
-}
+// @Test
+// void contextLoads() {
+// assertEquals(2, 1 + 1);
+// }
 
 // }

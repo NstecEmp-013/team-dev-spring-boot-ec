@@ -11,17 +11,17 @@ import com.fullness.ec.entity.ProductCategory;
 import com.fullness.ec.entity.ProductStock;
 import com.fullness.ec.form.ProductForm;
 import com.fullness.ec.helper.ProductHelper;
-import com.fullness.ec.repository.ProductCategoryRepository;
-import com.fullness.ec.repository.ProductRepository;
+import com.fullness.ec.repository.ProductCategoryResisterRepository;
+import com.fullness.ec.repository.ProductResisterRepository;
 import com.fullness.ec.repository.ProductStockRepository;
 
 @Service
 public class ProductServiceResisterImpl implements ProductServiceResister {
 
     @Autowired
-    private ProductRepository productRepository;
+    private ProductResisterRepository productResisterRepository;
     @Autowired
-    private ProductCategoryRepository productCategoryRepository;
+    private ProductCategoryResisterRepository productCategoryResisterRepository;
     @Autowired
     private ProductStockRepository productStockRepository;
 
@@ -32,7 +32,7 @@ public class ProductServiceResisterImpl implements ProductServiceResister {
     @Override
     public void registerProduct(ProductForm form) {
         Product product = productHelper.convertToProduct(form);
-        productRepository.insert(product);
+        productResisterRepository.insert(product);
         ProductStock stock = productHelper.convertToStock(product, form);
         productStockRepository.insert(stock);
     }
@@ -40,12 +40,12 @@ public class ProductServiceResisterImpl implements ProductServiceResister {
     @Transactional(readOnly = true)
     @Override
     public List<Product> getProducts() {
-        return productRepository.selectAll();
+        return productResisterRepository.selectAll();
     }
 
     @Override
     public List<ProductCategory> getProductCategories() {
-        return productCategoryRepository.selectAll();
+        return productCategoryResisterRepository.selectAll();
     }
 
 }
