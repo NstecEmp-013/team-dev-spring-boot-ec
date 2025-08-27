@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fullness.ec.repository.ProductCategoryRepository">
+    <resultMap type="com.fullness.ec.entity.ProductCategory" id="productCategoryResult">
+        <id property="id" column="id" />
+        <result property="name" column="name" />
+    </resultMap>
+    
+    <select id="selectAllProductCategories" resultMap="productCategoryResult">
+        select
+        id,
+        name
+        from
+        product_category;
+    </select>
+</mapper>

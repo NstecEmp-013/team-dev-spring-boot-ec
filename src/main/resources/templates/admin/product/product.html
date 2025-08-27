@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{fragments/layout}">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body>
+    <div layout:fragment="content">
+      <div class="container py-4">
+        <div class="row justify-content-center">
+            <div class="col-md-8 col-lg-6">
+                <div class="card border-0 shadow-none">
+                    <div class="card-body">
+                        <h3>商品検索</h3> 
+                          <form th:action="@{/admin/product}" method="get">   
+                            <div style="display: flex; align-items: center; gap: 12px;">
+                              <select name="productCategoryId">
+                                <option th:each="category : ${allcategories}"
+                                  th:value="${category.id}" th:text="${category.name}">
+                                </option>
+                              </select>
+                              <button type="submit">カテゴリ検索</button>
+                              <a href="/admin/product/register/input" class="nav-link">商品追加</a>
+                            </div>
+                          </form>
+
+                          <table> 
+                            <tr>
+                              <th>商品画像</th>
+                              <th>商品名</th>
+                              <th>単価</th>
+                              <th>修正</th>
+                              <th>削除</th>
+                            </tr>
+                            <tr th:each="result : ${searchResult}" th:object="${result}">
+                              <td >
+                                <img src="*{imageUrl}" style="width: 100px; height: 100px;">
+                              </td>
+                              <td th:text="*{name}"></td>
+                              <td th:text="*{price}"></td>
+                              <td>
+                                <a th:href="@{product/edit/__*{id}__}" class="nav-link">修正</a>
+                              </td>
+                              <td>
+                                <a th:href="@{product/delete/__*{id}__}" class="nav-link">削除</a>
+                              </td>
+                            </tr>
+                          </table>
+      
+        <!-- <ul class="pagination">
+           最初のページの場合はリンクを非活性化にし2ページ目以降はリンクを有効にする 
+          <li th:class="${products.first} ? 'disabled':''" style="display: inline">
+          <span th:if="${products.first}">最初</span>
+          <a th:if="${not products.first}" th:href="@{__${pageUrl}__page=0}">最初</a>
+          </li>
+           最初のページの場合はリンクを非活性化にし2ページ目以降はリンクを有効にする 
+          <li th:class="${products.first} ? 'disabled':''" style="display: inline">
+          <span th:if="${products.first}">前へ</span>
+          <a th:if="${not products.first}" th:href="@{__${pageUrl}__page=__${prev}__}">前へ</a>
+          </li>
+          ページ毎のリンクを表示 現在のページの場合はリンクを非活性化にし現在のページ以外はリンクを有効にする
+          <li
+          th:each="i : ${#numbers.sequence(0, products.totalPages-1)}"
+          th:class="(${i}==${products.number})? 'active' : ''"style="display: inline">
+          <span th:if="${i}==${products.number}" th:text="${i+1}">1</span>
+          <a th:if="${i}!=${products.number}" th:href="@{__${pageUrl}__page=__${i+1}__}">
+          <span th:text="${i+1}">0</span></a>
+          </li>
+           最後のページの場合はリンクを非活性化にし最後のページ目以外はリンクを有効にする 
+          <li th:class="${products.last} ? 'disabled':''" style="display: inline">
+          <span th:if="${products.last}">次へ</span>
+          <a th:if="${not products.last}" th:href="@{__${pageUrl}__page=__${next}__}">次へ</a>
+          </li>
+           最後のページの場合はリンクを非活性化にし最後のページ目以外はリンクを有効にする 
+          <li th:class="${products.last} ? 'disabled':''" style="display: inline">
+          <span th:if="${products.last}">最後</span>
+          <a th:if="${not products.last}" th:href="@{__${pageUrl}__page=__${products.totalPages}__}">最後</a>
+          </li>
+        </ul> -->
+        <!-- <div th:if="${products.empty}">
+          <p>商品が見つかりませんでした。</p>
+        </div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+  </body>
+</html>
