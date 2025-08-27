@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorate="~{fragments/layout}">
+<div layout:fragment="content">
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8 col-lg-6">
+                <div class="card border-0 shadow-none">
+                    <div class="card-body text-center">
+                        <h2 class="h4 mb-3" th:text="#{product.delete.complete.title}"></h2>
+
+                        <!-- 完了メッセージ -->
+                        <div class="alert alert-success">
+                            <p class="mb-1" th:text="#{productConfirm.name} + ${name} + #{product.delete.complete.message}"></p>
+                        </div>
+
+                        <!-- 業務終了ボタン -->
+                        <div>
+                            <form th:action="@{/admin}" method="get" class="flex-fill">
+                                <button type="submit" class="btn btn-primary w-100"
+                                    th:text="#{button.finish}"></button>
+                            </form>
+                        </div>
+                        <!-- 商品検索へ戻るボタン -->
+                        <div class="mt-3">  
+                            <form th:action="@{/admin/product}" method="get" class="flex-fill">
+                                <button type="submit" class="btn btn-secondary w-100"
+                                    th:text="#{button.back.search}"></button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</html>
