@@ -48,8 +48,8 @@ BP11|商品修正(完了)画面(http://localhost8080/admin/product/edit/complete
 BP12|新商品登録(入力)画面(http://localhost8080/admin/product-add)|ProductRegisterController|GET|input()|admin/product/register/input.html
 BP13|新商品登録(確認)画面(http://localhost8080/admin/product/add/confirm)|ProductRegisterController|POST|confirm()|admin/product/register/confirm.html
 BP14|新商品登録(完了)画面(http://localhost8080/admin/product/add/complete)|ProductRegisterController|GET|complete()|admin/product/register/complete.html
-BP19|商品カテゴリ登録(入力)画面(http://localhost8080/admin/product-category-add)|ProductCategoryRegisterController|GET|input()|admin/productcategory/input.html
-BP20|商品カテゴリ登録(確認)画面(http://localhost8080/admin/product-category-add/confirm)|ProductCategoryRegisterController|POST|confirm()|admin/productcategory/confirm.html
-BP21|商品カテゴリ登録(完了)画面(http://localhost8080/admin/aproduct-category-add/complete)|ProductCategoryRegisterController|GET|complete()|admin/productcategory/complete.html
+BP19|商品カテゴリ登録(入力)画面(http://localhost8080/admin/product/register)|ProductCategoryRegisterController|GET|input()|admin/productcategory/input.html
+BP20|商品カテゴリ登録(確認)画面(http://localhost8080/admin/product/register/confirm)|ProductCategoryRegisterController|POST|confirm()|admin/productcategory/confirm.html
+BP21|商品カテゴリ登録(完了)画面(http://localhost8080/admin/aproduct/register/complete)|ProductCategoryRegisterController|GET|complete()|admin/productcategory/complete.html
 
 
