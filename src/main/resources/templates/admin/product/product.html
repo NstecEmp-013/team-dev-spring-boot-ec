@@ -36,7 +36,7 @@
                             </tr>
                             <tr th:each="result : ${searchResult}" th:object="${result}">
                               <td >
-                                <img src="*{imageUrl}" style="width: 100px; height: 100px;">
+                                <img th:src="@{'/img/' + *{imageUrl}}" style="width: 100px; height: 100px;">
                               </td>
                               <td th:text="*{name}"></td>
                               <td th:text="*{price}"></td>
