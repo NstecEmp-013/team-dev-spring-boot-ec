@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{fragments/layout}">
+
+<div layout:fragment="content" th:object="${productCategoryForm}">
+  <div class="container py-4">
+    <div class="row justify-content-center">
+      <div class="col-md-8 col-lg-6">
+        <div class="card">
+          <div class="card-body">
+            <h2 class="h5 text-center mb-4" th:text="#{productcategory.register.confirm.title}"></h2>
+            
+            <form th:action="@{/admin/productcategory/register/execute}" 
+                  th:object="${productCategoryForm}" method="post">
+
+                <table class="table table-bordered table-striped">
+                  <tbody>
+                    <tr><th class="w-25" th:text="#{productCategoryForm.name}"></th>
+                        <td th:text="*{name}"></td></tr>  
+                    <!-- <tr><th th:text="#{productForm.productCategoryId}"></th>
+                        <td th:text="${categoryName}"></td></tr> -->
+                  </tbody>
+                </table>
+
+                  <div class="d-flex gap-2 mt-3">
+                      <!-- キャンセルボタン -->
+                      <button type="submit" 
+                              class="btn btn-outline-secondary w-100 flex-fill"
+                              formaction="/admin/product"
+                              formmethod="post"
+                              th:text="#{button.cancel}"></button>
+
+                      <!-- 戻るボタン -->
+                      <button type="submit" 
+                              class="btn btn-outline-secondary w-100 flex-fill"
+                              formaction="/admin/productcategory/register/input"
+                              formmethod="post"
+                              th:text="#{button.back}"></button>
+
+                      <!-- 完了ボタン -->
+                      <button type="submit" 
+                              class="btn btn-primary w-100 flex-fill"
+                              formaction="/admin/productcategory/register/execute"
+                              formmethod="post"
+                              th:text="#{button.confirm}"></button>
+                  </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</html>

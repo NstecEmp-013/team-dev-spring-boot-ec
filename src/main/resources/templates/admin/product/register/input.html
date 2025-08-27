@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{fragments/layout}">
+
+<div layout:fragment="content">
+    <div class="container py-4">
+        <div class="row justify-content-center">
+            <div class="col-md-8 col-lg-6">
+                <div class="card border-0 shadow-none">
+                    <div class="card-body">
+                        <h2 class="h4 text-center mb-4" th:text="#{product.register.input.title}"></h2>
+
+                        <form th:action="@{/admin/product/register/confirm}" 
+                              th:object="${productForm}" method="post" enctype="multipart/form-data" novalidate>
+                            
+                            <!-- 商品名 -->
+                            <div class="row mb-2 align-items-center">
+                                <label for="name" class="col-sm-3 col-form-label" th:text="#{productForm.name}"></label>
+                                <div class="col-sm-9">
+                                    <input id="name" type="text" class="form-control"
+                                           th:field="*{name}" th:placeholder="#{productForm.name.placeholder}"
+                                           th:errorclass="is-invalid" />
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="offset-sm-3 col-sm-9">
+                                    <div class="invalid-feedback d-block"
+                                         th:if="${#fields.hasErrors('name')}"
+                                         th:errors="*{name}">商品名エラー</div>
+                                </div>
+                            </div>
+
+                            <!-- 単価 -->
+                            <div class="row mb-2 align-items-center">
+                                <label for="price" class="col-sm-3 col-form-label" th:text="#{productForm.price}"></label>
+                                <div class="col-sm-9">
+                                    <input id="price" type="number" class="form-control" min="1" max="1000000"
+                                           th:field="*{price}" th:placeholder="#{productForm.price.placeholder}"
+                                           th:errorclass="is-invalid" />
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="offset-sm-3 col-sm-9">
+                                    <div class="invalid-feedback d-block"
+                                         th:if="${#fields.hasErrors('price')}"
+                                         th:errors="*{price}">単価エラー</div>
+                                </div>
+                            </div>
+
+                            <!-- 在庫数 -->
+                            
+                            <div class="row mb-2 align-items-center">
+                                <label for="quantity" class="col-sm-3 col-form-label" th:text="#{productForm.quantity}"></label>
+                                <div class="col-sm-9">
+                                    <input id="quantity" type="number" class="form-control" min="1" max="1000"
+                                           th:field="*{quantity}" th:placeholder="#{productForm.quantity.placeholder}"
+                                           th:errorclass="is-invalid" />
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="offset-sm-3 col-sm-9">
+                                    <div class="invalid-feedback d-block"
+                                         th:if="${#fields.hasErrors('quantity')}"
+                                         th:errors="*{quantity}">在庫数エラー</div>
+                                </div>
+                            </div>
+                            
+
+                            <!-- 商品カテゴリ -->
+                            <div class="row mb-2 align-items-center">
+                                <label for="productCategoryId" class="col-sm-3 col-form-label" th:text="#{productForm.productCategoryId}"></label>
+                                <div class="col-sm-9">
+                                    <select id="productCategoryId" class="form-select"
+                                            th:field="*{productCategoryId}" th:errorclass="is-invalid">
+                                        <option value=""th:text="#{productForm.productCategoryId.placeholder}"></option>
+                                        <option th:each="category : ${categories}"
+                                                th:value="${category.id}"
+                                                th:text="${category.name}"></option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="offset-sm-3 col-sm-9">
+                                    <div class="invalid-feedback d-block"
+                                         th:if="${#fields.hasErrors('productCategoryId')}"
+                                         th:errors="*{productCategoryId}">カテゴリエラー</div>
+                                </div>
+                            </div>
+
+                            <!-- 画像 -->
+                            <div class="row mb-2 align-items-center">
+                                <label for="imageFile" class="col-sm-3 col-form-label" th:text="#{productForm.imageFile}"></label>
+                                <div class="col-sm-9">
+                                    <input id="imageFile" type="file" class="form-control"
+                                        th:field="*{imageFile}" th:errorclass="is-invalid" />
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="offset-sm-3 col-sm-9">
+                                    <div class="invalid-feedback d-block"
+                                        th:if="${#fields.hasErrors('imageFile')}"
+                                        th:errors="*{imageFile}">画像エラー</div>
+                                </div>
+                            </div>
+                            
+                            <div class="d-flex gap-2 mt-3">
+                                <!-- キャンセルボタン -->
+                                <button type="submit" 
+                                        class="btn btn-outline-secondary w-100 flex-fill"
+                                        formaction="/admin/product/add/back"
+                                        formmethod="post"
+                                        th:text="#{button.cancel}"></button>
+
+                                <!-- 完了ボタン -->
+                                <button type="submit" 
+                                        class="btn btn-primary w-100 flex-fill"
+                                        formaction="/admin/product/register/confirm"
+                                        formmethod="post"
+                                        th:text="#{button.confirm}"></button>
+                            </div>
+                        </form>      
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</html>

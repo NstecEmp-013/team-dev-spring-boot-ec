@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{fragments/layout}">
+<div layout:fragment="content">
+  <div class="container py-5">
+    <div class="row justify-content-center">
+      <div class="col-md-8 col-lg-6">
+        <div class="card border-0 shadow-none">
+          <div class="card-body text-center">
+            <h2 class="h4 mb-3" th:text="#{productcategory.register.complete.title}"></h2>
+            <form th:action="@{/admin/productcategory/register/execute}" 
+                    th:object="${productForm}" method="post">
+
+            <!-- 完了メッセージ -->
+            <div class="alert alert-success">
+              <p class="mb-0">
+                <span th:text="#{productForm.productCategoryId}"></span>
+                <strong th:text="${addCategoryName}"></strong>
+                <span th:text="#{product.register.complete.message}"></span>
+              </p> 
+            </div>
+
+            <div class="d-flex gap-2 mt-3">
+                <!-- [業務終了]ボタン -->
+                  <button type="submit" 
+                          class="btn btn-outline-secondary w-100 flex-fill" 
+                          formaction="/admin/product"
+                          formmethod="post"
+                          th:text="#{button.end}"></button> 
+
+                <!-- [入力に戻る]ボタン -->
+                  <button type="submit" 
+                  class="btn btn-primary w-100 flex-fill" 
+                  formaction="/admin/productcategory/register/input"
+                  formmethod="post"
+                  th:text="#{button.back.input}"></button>
+            </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</html>

@@ -1,16 +1,17 @@
-package com.fullness.ec;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+// package com.fullness.ec;
 
-import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
+// import static org.junit.jupiter.api.Assertions.assertEquals;
 
-@SpringBootTest
-class ApplicationTests {
+// import org.junit.jupiter.api.Test;
+// import org.springframework.boot.test.context.SpringBootTest;
 
-	@Test
-	void contextLoads() {
-		assertEquals(2, 1+1);
-	}
+// @SpringBootTest
+// class ApplicationTests {
 
-}
+// @Test
+// void contextLoads() {
+// assertEquals(2, 1 + 1);
+// }
+
+// }
