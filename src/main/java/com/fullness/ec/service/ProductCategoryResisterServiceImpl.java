@@ -7,32 +7,32 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.fullness.ec.entity.ProductCategory;
-import com.fullness.ec.repository.ProductCategoryRepository;
+import com.fullness.ec.repository.ProductCategoryResisterRepository;
 
 @Service
 public class ProductCategoryResisterServiceImpl implements ProductCategoryResisterService {
 
     @Autowired
-    ProductCategoryRepository productCategoryRepository;
+    ProductCategoryResisterRepository productCategoryResisterRepository;
 
     @Transactional
     @Override
     public void addProductCategory(ProductCategory productCategory) {
-        productCategoryRepository.insert(productCategory);
+        productCategoryResisterRepository.insert(productCategory);
     }
 
     @Override
     public List<ProductCategory> getProductCategories() {
-        return productCategoryRepository.selectAll();
+        return productCategoryResisterRepository.selectAll();
     }
 
     @Override
     public ProductCategory getProductCategoryId(Integer id) {
-        return productCategoryRepository.selectById(id);
+        return productCategoryResisterRepository.selectById(id);
     }
 
     @Override
     public boolean isCategoryExists(String name) {
-        return productCategoryRepository.selectByName(name) != null;
+        return productCategoryResisterRepository.selectByName(name) != null;
     }
 }
