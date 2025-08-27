@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorate="~{fragments/layout}">
+
+<div layout:fragment="content">
+    <div class="container py-4">
+        <div class="row justify-content-center">
+            <div class="col-md-8 col-lg-6">
+                <div class="card border-0 shadow-none">
+                    <div class="card-body">
+                        <h2 class="h4 text-center mb-4" th:text="#{regiter.account.input.title}"></h2>
+                        <form th:action="@{/admin/account/confirm}" th:object="${accountForm}" method="post" novalidate>
+                            <!--ここのth:object="${categoryList}"がコントローラーの model.addAttribute("categoryList", accountService.getEmployee());-->
+                            <!-- 社員名 -->
+                            <div class="row mb-2 align-items-center">
+                                <label for="empName" class="col-sm-3 col-form-label"
+                                    th:text="#{employeeForm.empname}">社員名</label>
+                                <div class="col-sm-9">
+                                    <select id="empName" class="form-select" th:field="*{empName}"
+                                        th:errorclass="is-invalid">
+                                        <option value="" th:text="#{employeeForm.employeename}">社員名を選択してください</option>
+                                        <option th:each="employee : ${categoryList}"
+                                            th:value="${employee.empName}" th:text="${employee.empName}">
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row mb-4">
+                                <div class="offset-sm-3 col-sm-9">
+                                    <div class="invalid-feedback d-block" th:if="${#fields.hasErrors('empName')}"
+                                        th:errors="*{employeeName}">社員名エラー</div>
+                                </div>
+                            </div>
+                            <!-- アカウント名 -->
+                            <div class="row mb-2 align-items-center">
+                                <label for="accountName" class="col-sm-3 col-form-label"
+                                    th:text="#{login.username}">アカウント名</label>
+                                <div class="col-sm-9">
+                                    <!---バリエーションのクラスが作り終わったら書き換える-->
+                                    <input id="accountName" type="text" class="form-control" th:field="*{accountName}"
+                                        th:placeholder="#{employeeForm.accountName.placeholder}"
+                                        th:errorclass="is-invalid" />
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="offset-sm-3 col-sm-9">
+                                    <div class="invalid-feedback d-block" th:if="${#fields.hasErrors('accountName')}"
+                                        th:errors="*{accountName}">アカウント名エラー</div>
+                                </div>
+                            </div>
+                            <!-- パスワード -->
+                            <div class="row mb-2 align-items-center">
+                                <label for="password" class="col-sm-3 col-form-label"
+                                    th:text="#{employeeForm.password}">パスワード</label>
+                                <div class="col-sm-9">
+                                    <!---バリエーションのクラスが作り終わったら書き換える-->
+                                    <input id="password" type="password" class="form-control" th:field="*{password}"
+                                        th:placeholder="#{employeeForm.password.placeholder}"
+                                        th:errorclass="is-invalid" />
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="offset-sm-3 col-sm-9">
+                                    <div class="invalid-feedback d-block" th:if="${#fields.hasErrors('password')}"
+                                        th:errors="*{password}">パスワードエラー</div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="offset-sm-3 col-sm-9">
+                                    <div class="col-sm-6 mx-auto">
+                                        <!-- [キャンセル]ボタン -->
+                                        <form th:action="@{/admin/account/input}" method="get" class="flex-fill">
+                                            <button type="submit" class="btn btn-outline-secondary w-100"
+                                                th:text="#{button.cancel}">キャンセル</button>
+                                        </form>
+                                      
+                                        <button type="submit" class="btn btn-primary w-100"
+                                            th:text="#{button.confirm}">完了</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</html>
