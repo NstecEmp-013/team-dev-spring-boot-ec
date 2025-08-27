@@ -11,6 +11,7 @@ import com.fullness.ec.entity.Product;
 @Mapper
 public interface ProductRepository {
 
+    
     List<Product> selectAllProducts(Pageable pageable);
 
     // List<Product> selectProductsByCategory(@RequestParam(value = "productCategoryId") Integer productCategoryId, Pageable pageable);
