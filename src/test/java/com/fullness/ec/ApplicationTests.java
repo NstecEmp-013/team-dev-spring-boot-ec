@@ -9,9 +9,9 @@
 // @SpringBootTest
 // class ApplicationTests {
 
-// @Test
-// void contextLoads() {
-// assertEquals(2, 1 + 1);
-// }
+@Test
+void contextLoads() {
+	assertEquals(2, 1 + 1);
+}
 
 // }

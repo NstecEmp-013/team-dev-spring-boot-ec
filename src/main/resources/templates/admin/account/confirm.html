@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  layout:decorate="~{fragments/layout}">
+
+<div layout:fragment="content" th:object="${AccountForm}">
+  <div class="container py-4">
+    <div class="row justify-content-center">
+      <div class="col-md-8 col-lg-6">
+        <div class="card">
+          <div class="card-body">
+            <h2 class="h5 text-center mb-4" th:text="#{regiter.account.confirm.title}"></h2>
+
+            <table class="table table-bordered table-striped">
+              <tbody>
+                <tr>
+                  <th class="w-25" th:text="#{employee.name.title}">社員名</th>
+                  <td th:text="*{empName}"></td>
+                </tr>
+                <tr>
+                  <th th:text="#{employeeForm.accountName}">アカウント名</th>
+                  <td th:text="*{accountName}"></td>
+                </tr>
+                <tr>
+                  <th th:text="#{employeeForm.password}">パスワード</th>
+                  <td th:text="${password}"></td>
+                </tr>
+              </tbody>
+            </table>
+
+            <div class="d-flex gap-2 mt-3">
+              <!-- [キャンセル]ボタン -->
+              <form th:action="@{/admin/account/input}" method="get" class="flex-fill">
+                <button type="submit" class="btn btn-outline-secondary w-100" th:text="#{button.cancel}">キャンセル</button>
+              </form>
+              <!-- [戻る]ボタン -->
+
+              <form th:action="@{/admin/account/input}" method="get" class="flex-fill">
+                <button type="submit" class="btn btn-outline-secondary w-100" th:text="#{button.back}">戻る</button>
+              </form>
+              <!-- [登録]ボタン -->
+              <form th:action="@{/admin/account/execute}" method="post" class="flex-fill">
+                <!-- TODO: ↑execute に行ってからcompleteリダイレクト-->
+                <input type="hidden" th:field="*{accountName}" />
+                <input type="hidden" th:field="*{password}" />
+                <input type="hidden" th:field="*{empDepartmentId}" />
+                <button type="submit" class="btn btn-primary w-100" th:text="#{button.register}">登録</button>
+
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

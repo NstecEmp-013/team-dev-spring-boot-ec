@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fullness.ec.repository.DeleteProductRepository">
+
+  <resultMap id="productResult" type="Product" >
+    <id property="id" column="p_id" />
+    <result property="name" column="p_name" />
+    <result property="price" column="p_price" />
+    <result property="imageUrl" column="p_image_url" />
+    <result property="productCategoryId" column="p_product_category_id" />
+    <result property="deleteFlag" column="p_delete_flag" />
+
+    <association property="stocks" javaType="ProductStock">
+      <id property="id" column="s_id" />
+      <result property="quantity" column="s_quantity" />
+      <result property="productId" column="s_product_id" />
+    </association>
+    <association property="productCategory" javaType="ProductCategory">
+      <id property="id" column="c_id" />
+      <result property="name" column="c_name" />
+    </association>
+  </resultMap>
+  <select id="selectById" resultMap="productResult">
+    select
+      p.id as p_id,
+      p.name as p_name,
+      p.price as p_price,
+      p.image_url as p_image_url,
+      p.product_category_id as p_product_category_id,
+      p.delete_flag as p_delete_flag,
+      s.id as s_id,
+      s.quantity as s_quantity,
+      s.product_id as s_product_id,
+      c.id as c_id,
+      c.name as c_name
+    from
+      product p
+    inner join
+      product_stock s on p.id = s.product_id
+    inner join
+      product_category c on p.product_category_id = c.id
+    where
+      p.id = #{id} 
+      AND p.delete_flag = '0'
+  </select>
+
+  <delete id="deleteById" parameterType="Integer">
+    <!-- 商品IDを指定して1件削除する理論削除するSQL -->
+        update product set delete_flag = '1' where id = #{id}
+  </delete>
+</mapper>

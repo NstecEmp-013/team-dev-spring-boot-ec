@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{fragments/layout}">
+<div layout:fragment="content">
+  <div class="container py-5">
+    <div class="row justify-content-center">
+      <div class="col-md-8 col-lg-6">
+        <div class="card border-0 shadow-none">
+          <div class="card-body text-center">
+            <h2 class="h4 mb-3" th:text="#{regiter.account.complete.title}">アカウント登録(完了)</h2>
+
+            <!-- 完了メッセージ -->
+            <div class="alert alert-success">
+              <p class="mb-1" th:text="#{employee.add.complete.message}">社員情報の登録が完了しました。</p>
+              <p class="mb-0">
+                <span th:text="#{employeeForm.name}"></span>：
+                <!-- <strong th:text="${addEmpName}"></strong> -->
+                 <span th:text="${addEmpName}"></span>
+              </p>
+               <p class="mb-0">
+                <span th:text="#{employeeForm.accountName}"></span>：
+                <!-- <strong th:text="${addEmpName}"></strong> -->
+                 <span th:text="${addaccountId}"></span>
+              </p>
+            </div>
+
+            <div class="d-flex gap-2 justify-content-center mt-3">
+              <a class="btn btn-outline-secondary" th:href="@{/admin/account/input}" th:text="#{button.back.input}">入力に戻る</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</html>

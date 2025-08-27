@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fullness.ec.repository.EmployeeAccountRepository">
+    <select id="selectByName" resultType="EmployeeAccount">
+        SELECT id , name , password , employee_id AS EmployeeId
+        FROM employee_account
+        WHERE name = #{name}
+    </select>
+</mapper>

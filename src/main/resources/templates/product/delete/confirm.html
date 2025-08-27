@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" 
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorate="~{fragments/layout}">
+
+<div layout:fragment="content">
+    <div class="container py-4">
+        <div class="row justify-content-center">
+            <div class="col-md-8 col-lg-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h2 class="h5 text-center mb-4" th:text="#{product.delete.confirm.title}"></h2>
+
+                        <table class="table table-bordered table-striped">
+                            <tbody>
+                                <tr>
+                                    <th th:text="#{productConfirm.name}"></th>
+                                    <td th:text="${name}"></td>
+                                </tr>
+                                <tr>
+                                    <th th:text="#{productConfirm.price}"></th>
+                                    <td th:text="${price}"></td>
+                                </tr>
+                                <tr>
+                                    <th th:text="#{productConfirm.stocks}"></th>
+                                    <td th:text="${quantity}"></td>
+                                </tr>
+                                <tr>
+                                    <th th:text="#{productConfirm.productCategoryName}"></th>
+                                    <td th:text="${productCategoryName}"></td>
+                                </tr>
+                                <tr>
+                                    <th th:text="#{productConfirm.imageUrl}"></th>
+                                    <td>
+                                        <img th:src="@{'/img/' + ${imageUrl}}">
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <div class="d-flex gap-2 mt-3">
+                            <!-- 完了ボタン -->
+                            <form th:action="@{/product/delete}" method="post" class="flex-fill">
+                                <button type="submit" class="btn btn-primary w-100"
+                                    th:text="#{button.complete}"></button>
+                            </form>
+                            <!-- キャンセルボタン -->
+                            <form th:action="@{/admin/product}" method="get" class="flex-fill">
+                                <button type="submit" class="btn btn-secondary w-100"
+                                    th:text="#{button.cancel}"></button>
+                            </form>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

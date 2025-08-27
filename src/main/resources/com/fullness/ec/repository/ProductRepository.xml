@@ -1,34 +1,75 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.fullness.ec.repository.ProductRepository">
+    <!-- 
+    <select id="selectAll" resultType="Product">      
+        select product_id as productId, product_name as productName, category_id as productCategoryId from product
+    </select>
+    -->
+    <resultMap type="com.fullness.ec.entity.Product" id="productResult">
+        <id property="id" column="id" />
+        <result property="name" column="name" />
+        <result property="price" column="price" />
+        <result property="imageUrl" column="imageUrl" />
+        <result property="productCategoryId" column="ProductproductCategoryId" />
+        <result property="deleteFlag" column="deleteFlag" />
+    </resultMap>
 
-    <!-- すべての商品を取得 -->
-    <select id="selectAll" resultType="com.fullness.ec.entity.Product">
-        SELECT
+    <select id="countAllProducts" resultType="int">
+        select count(*) from product where delete_flag = 0;
+    </select>
+    <select id="countProductsByCategory" parameterType="Integer" resultType="int">
+        select count(*) from product where product_category_id = #{productCategoryId} and delete_flag = 0;
+    </select>
+
+    <!-- <select id="selectByPage" resultType="com.fullness.ec.entity.Product" resultMap="productResult">
+        select
             id,
             name,
             price,
-            image_url As imageUrl,
-            product_category_id AS productCategoryId
-        FROM product
-        WHERE delete_flag = 0
+            image_url as imageUrl,
+            product_category_id as ProductproductCategoryId,
+            delete_flag as deleteFlag
+        from 
+            product
+        where
+            delete_flag = 0
+        order by
+            id
+        order by
+            id
+        limit
+            #{pageable.pageSize}
+        offset
+            #{pageable.offset}
+    </select> -->
+    
+    <select id="selectAllProducts" resultMap="productResult">
+        select
+        id,
+        name,
+        price,
+        image_url as imageUrl,
+        product_category_id as ProductproductCategoryId,
+        delete_flag as deleteFlag
+        from 
+        product
+        where
+            delete_flag = 0;
     </select>
 
-    <!-- 商品を登録 -->
-    <!-- <insert id="insert" parameterType="com.fullness.ec.entity.Product">
-        INSERT INTO product
-            (name, price, product_category_id, image_url, delete_flag)
-        VALUES
-            (#{name}, #{price}, #{productCategoryId}, #{imageUrl}, 0)
-    </insert> -->
-     <!-- 商品を登録 -->
-    <insert id="insert" parameterType="com.fullness.ec.entity.Product" useGeneratedKeys="true" keyProperty="id">
-        INSERT INTO product
-            (name, price, product_category_id, image_url, delete_flag)
-        VALUES
-            (#{name}, #{price}, #{productCategoryId}, #{imageUrl}, 0)
-    </insert>
-
+    <select id="selectProductsByCategory" parameterType="Integer" resultMap="productResult">
+        select
+        id,
+        name,
+        price,
+        image_url as imageUrl,
+        product_category_id as ProductproductCategoryId,
+        delete_flag as deleteFlag
+        from 
+        product
+        where
+            product_category_id = #{productCategoryId}
+            and delete_flag = 0
+    </select>
 </mapper>
