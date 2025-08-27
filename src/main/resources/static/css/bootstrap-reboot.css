@@ -414,7 +414,6 @@ svg {
 table {
   caption-side: bottom;
   border-collapse: collapse;
-  width: 100%;
 }
 
 caption {
@@ -438,6 +437,7 @@ th {
   border-color: inherit;
   border-style: solid;
   border-width: 0;
+<<<<<<< HEAD
   
 }
 
@@ -445,6 +445,8 @@ table, th, td {
   border: 1px solid #ccc; /* 枠線の色と太さを指定 */
   padding: 8px;
   text-align: center;
+=======
+>>>>>>> f9d3b097ada5da82e96fd3ef49f2d966fd8499b8
 }
 
 label {

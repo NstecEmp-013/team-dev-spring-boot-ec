@@ -1,5 +1,4 @@
 package com.fullness.ec.repository;
-
 import org.apache.ibatis.annotations.Mapper;
 
 import com.fullness.ec.entity.EmployeeAccount;
