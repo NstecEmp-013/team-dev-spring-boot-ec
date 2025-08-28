@@ -11,16 +11,20 @@ import com.fullness.ec.entity.Product;
 @Mapper
 public interface ProductRepository {
 
-    
     List<Product> selectAllProducts(Pageable pageable);
 
-    // List<Product> selectProductsByCategory(@RequestParam(value = "productCategoryId") Integer productCategoryId, Pageable pageable);
-    List<Product> selectProductsByCategory(@RequestParam(value = "productCategoryId") Integer productCategoryId, Pageable pageable);
+    // List<Product> selectProductsByCategory(@RequestParam(value =
+    // "productCategoryId") Integer productCategoryId, Pageable pageable);
+    List<Product> selectProductsByCategory(@RequestParam(value = "productCategoryId") Integer productCategoryId,
+            Pageable pageable);
+
     // ページネーション
     Integer countAllProducts();
-    Integer countProductsByCategory(@Param("productCategoryId") Integer productCategoryId);
-    // List<Product> selectByPage(@Param("pageable") Integer productCategoryId, Pageable pageable);
 
-    Product selectById(Integer productCategoryId);
+    Integer countProductsByCategory(@Param("productCategoryId") Integer productCategoryId);
+    // List<Product> selectByPage(@Param("pageable") Integer productCategoryId,
+    // Pageable pageable);
+
+    // Product selectById(Integer productCategoryId);
 
 }
