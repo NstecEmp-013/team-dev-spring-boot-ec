@@ -46,7 +46,7 @@ public class ProductCategoryRegisterController {
 
         // --- 重複チェック ---
         if (categoryService.isCategoryExists(form.getName())) {
-            result.rejectValue("name", "duplicate");
+            result.rejectValue("name", "productCategoryForm.name.duplicate");
             return "admin/productcategory/register/input";
         }
 
@@ -62,7 +62,7 @@ public class ProductCategoryRegisterController {
 
         // もう一度重複チェック
         if (categoryService.isCategoryExists(form.getName())) {
-            result.rejectValue("name", "duplicate");
+            result.rejectValue("name", "productCategoryForm.name.duplicate");
             return "admin/productcategory/register/input";
         }
         ProductCategory category = productCategoryHelper.convert(form);

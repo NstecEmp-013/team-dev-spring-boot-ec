@@ -20,9 +20,9 @@
                               <tr><th class="w-25" th:text="#{productForm.name}"></th>
                                   <td th:text="*{name}"></td></tr>
                               <tr><th th:text="#{productForm.price}"></th>
-                                  <td th:text="*{price}"></td></tr>
+                                  <td th:text="*{price} + ' ' + #{unit.yen}"></td></tr>
                               <tr><th th:text="#{productForm.quantity}"></th>
-                                  <td th:text="*{quantity}"></td></tr>   
+                                  <td th:text="*{quantity} + ' ' + #{unit.piece}"></td></tr>   
                               <tr><th th:text="#{productForm.productCategoryId}"></th>
                                   <td th:text="${categoryName}"></td></tr>
                               <tr><th th:text="#{productForm.imageFile}"></th>
@@ -36,7 +36,7 @@
                               <button type="submit" 
                                       class="btn btn-outline-secondary w-100 flex-fill"
                                       formaction="/admin/product"
-                                      formmethod="post"
+                                      formmethod="get"
                                       th:text="#{button.cancel}"></button>
 
                               <!-- 戻るボタン -->

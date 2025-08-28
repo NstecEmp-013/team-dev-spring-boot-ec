@@ -58,6 +58,10 @@ public class ProductRegisterController {
             @Validated @ModelAttribute("productForm") ProductForm productForm,
             BindingResult result,
             Model model) throws IOException {
+
+        if (productForm.getImageFile() == null || productForm.getImageFile().isEmpty()) {
+            result.rejectValue("imageFile", "productForm.imageFile.required");
+        }
         if (result.hasErrors()) {
             return "admin/product/register/input";
         }

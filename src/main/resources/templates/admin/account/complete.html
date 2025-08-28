@@ -26,8 +26,16 @@
             </div>
 
             <div class="d-flex gap-2 justify-content-center mt-3">
-              <a class="btn btn-outline-secondary" th:href="@{/admin/account/input}" th:text="#{button.back.input}">入力に戻る</a>
+              <!-- [業務終了]ボタン -->
+              <form th:action="@{/admin}" method="get" class="flex-fill">
+                <button type="submit" class="btn btn-outline-secondary w-100" th:text="#{button.end}">業務終了</button>
+              </form>
+              <!-- [入力に戻る]ボタン -->
+              <form th:action="@{/admin/account/input}" method="get" class="flex-fill">
+                <button type="submit" class="btn btn-outline-secondary w-100" th:text="#{button.back.input}">入力に戻る</button>
+              </form>
             </div>
+          
           </div>
         </div>
       </div>

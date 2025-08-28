@@ -27,8 +27,8 @@
                       <!-- キャンセルボタン -->
                       <button type="submit" 
                               class="btn btn-outline-secondary w-100 flex-fill"
-                              formaction="/admin/product"
-                              formmethod="post"
+                              formaction="/admin"
+                              formmethod="get"
                               th:text="#{button.cancel}"></button>
 
                       <!-- 戻るボタン -->
@@ -38,12 +38,12 @@
                               formmethod="post"
                               th:text="#{button.back}"></button>
 
-                      <!-- 完了ボタン -->
+                      <!-- 登録ボタン -->
                       <button type="submit" 
                               class="btn btn-primary w-100 flex-fill"
                               formaction="/admin/productcategory/register/execute"
                               formmethod="post"
-                              th:text="#{button.confirm}"></button>
+                              th:text="#{button.register}"></button>
                   </div>
 
           </div>

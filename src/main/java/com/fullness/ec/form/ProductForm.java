@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.Max;
 import lombok.AllArgsConstructor;
@@ -21,11 +22,11 @@ public class ProductForm implements Serializable {
 
     /** 商品名 */
     @NotBlank(message = "{productForm.name.placeholder}")
+    @Pattern(regexp = "^$|^[一-龯ぁ-んァ-ン　ー]+$", message = "{productForm.name.pattern}")
     private String name;
 
     /** 価格 */
     @NotNull
-
     @Min(1)
     @Max(1000000)
     private Integer price;

@@ -70,11 +70,13 @@
                                 <div class="offset-sm-3 col-sm-9">
                                     <div class="col-sm-6 mx-auto">
                                         <!-- [キャンセル]ボタン -->
-                                        <form th:action="@{/admin/account/input}" method="get" class="flex-fill">
-                                            <button type="submit" class="btn btn-outline-secondary w-100"
+                                        <button type="submit" 
+                                                class="btn btn-outline-secondary w-100 flex-fill"
+                                                th:formaction="@{/admin/account/back}"
+                                                th:formmethod="post"
                                                 th:text="#{button.cancel}">キャンセル</button>
-                                        </form>
-                                      
+                                        
+                                        <!-- [完了]ボタン -->
                                         <button type="submit" class="btn btn-primary w-100"
                                             th:text="#{button.confirm}">完了</button>
                                     </div>
