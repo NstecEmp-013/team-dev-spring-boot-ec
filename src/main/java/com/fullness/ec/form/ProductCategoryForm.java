@@ -16,8 +16,8 @@ import lombok.NoArgsConstructor;
 public class ProductCategoryForm implements Serializable {
 
     /** カテゴリ名 */
-    @NotBlank
+    @NotBlank(message = "{productCategoryForm.name.placeholder}")
     @Size(min = 2, max = 20)
-    @Pattern(regexp = "^[一-龯ぁ-んァ-ン　ー]+$")
+    @Pattern(regexp = "^$|^[一-龯ぁ-んァ-ン　ー]+$")
     private String name;
 }

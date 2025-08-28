@@ -22,7 +22,7 @@ public class ProductForm implements Serializable {
 
     /** 商品名 */
     @NotBlank(message = "{productForm.name.placeholder}")
-    @Pattern(regexp = "^$|^[一-龯ぁ-んァ-ン　ー]+$", message = "{productForm.name.pattern}")
+    @Pattern(regexp = "^$|^[一-龯ぁ-んァ-ン　ー]+$")
     private String name;
 
     /** 価格 */
