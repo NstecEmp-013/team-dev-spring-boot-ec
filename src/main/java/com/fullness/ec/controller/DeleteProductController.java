@@ -15,7 +15,7 @@ import com.fullness.ec.entity.Product;
 import com.fullness.ec.service.DeleteProductService;
 
 @Controller
-@RequestMapping("product/delete")
+@RequestMapping("admin/product/delete")
 @SessionAttributes({ "product" })
 public class DeleteProductController {
     @Autowired
@@ -39,7 +39,7 @@ public class DeleteProductController {
         model.addAttribute("productCategoryName", product.getProductCategory().getName());
         model.addAttribute("quantity", product.getStocks().getQuantity());
         model.addAttribute("imageUrl", product.getImageUrl());
-        return "product/delete/confirm";
+        return "admin/product/delete/confirm";
     }
 
     /**
@@ -50,7 +50,7 @@ public class DeleteProductController {
     @PostMapping()
     public String deleteProductById(@ModelAttribute("product") Product product) {
         deleteProductService.deleteProductById(product.getId());
-        return "redirect:/product/delete/complete";
+        return "redirect:/admin/product/delete/complete";
     }
 
     /**
@@ -62,6 +62,6 @@ public class DeleteProductController {
     public String deleteComplete(@ModelAttribute("product") Product product, SessionStatus sessionStatus, Model model) {
         model.addAttribute("name", product.getName());
         sessionStatus.setComplete();
-        return "product/delete/complete";
+        return "admin/product/delete/complete";
     }
 }
