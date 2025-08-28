@@ -27,16 +27,16 @@
                 <!-- [業務終了]ボタン -->
                   <button type="submit" 
                           class="btn btn-outline-secondary w-100 flex-fill" 
-                          formaction="/admin/product"
-                          formmethod="post"
+                          formaction="/admin"
+                          formmethod="get"
                           th:text="#{button.end}"></button> 
 
                 <!-- [商品検索へ戻る]ボタン -->
                   <button type="submit" 
                           class="btn btn-outline-secondary w-100 flex-fill" 
                           formaction="/admin/product"
-                          formmethod="post"
-                          th:text="#{button.searchback}"></button>
+                          formmethod="get"
+                          th:text="#{button.back.search}"></button>
 
                 <!-- [入力に戻る]ボタン -->
                   <button type="submit" 
